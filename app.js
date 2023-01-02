@@ -82,6 +82,9 @@ app.post("/",function(req,res){
   if(x=='Mohab' && y=='Olayan')
   {
     flag=true;
+    req.session.username=x;
+    req.session.save();
+    res.render("home");
   }
   MongoClient.connect("mongodb://0.0.0.0:27017/",  { useUnifiedTopology: true }, function (err, client) {
     if(err)  throw err;
